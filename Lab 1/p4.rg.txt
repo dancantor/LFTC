@@ -1,0 +1,7 @@
+-> 1identifiers should not start with number
+-> def is not a known token
+def print_the_number(number):
+    3number =.+ number
+    print(3number)
+
+print_the_number(3)

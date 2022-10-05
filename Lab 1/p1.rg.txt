@@ -1,0 +1,15 @@
+-> name of language este romgleza, extension .rg
+-> comments are defined with ->
+-> we define a function with sing
+-> >= becomes greaterorequal
+-> to return from a function use bringback
+sing max_of_three_numbers -a, b, c- :
+    if a greaterorequal b and a greaterorequal c:
+        bringback a
+    if b greaterorequal c:
+        bringback b
+    bringback c
+
+-> show is the print funcctio
+-> to call a function use -function -parameters- -
+show-max_of_three_numbers -10, 15, 19- -

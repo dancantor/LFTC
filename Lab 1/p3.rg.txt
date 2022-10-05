@@ -1,0 +1,11 @@
+sing min_of_n_numbers -list_of_numbers- :
+    minim = list_of_numbers[0]
+    toti number in list_of_numbers:
+        este number lessthan minim:
+            minim = number
+    bringback minim
+
+
+show -min_of_n_numbers -[15, 23, 13, -5, 10, 1, -2, 4]- -
+
+

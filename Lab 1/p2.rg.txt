@@ -1,0 +1,18 @@
+-> este represents the if
+-> toti represents for
+-> interval is a range function
+-> in is a reserved word to create iterator on array
+sing is_number_prime -number- :
+    este number == 1 or number == 0:
+        bringback False
+    este number == 2:
+        bringback True
+    este number % 2 == 0:
+        bringback False
+    toti div in interval(3, number // 2, 2):
+        este number % div == 0:
+            bringback False
+    bringback True
+
+
+show -is_number_prime- -169- -
