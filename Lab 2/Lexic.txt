@@ -1,0 +1,32 @@
+Specification
+
+1. Alphabet:
+	a. Lower case letters (a-z) and upper case letters (A-Z)
+	b.  thilda character '~'
+	c. Decimal digits(0-9)
+2. Lexic:
+	a. operators  
+		i) logical: || && !
+		ii) arithmetic: + - * / = != == =+ =- =/ =* < > <= >=
+	b. separators [] {} : ; tab space
+	c. reserved words: list int char string while for var begin end 
+			if else out in
+
+	d. identifiers: 
+		 i) a sequence of letters, digit and "~", such that the first
+		character is always a letter or "~", without being possible to have only "~"
+			identifier ::= ( letter ) | ( letter | ~ ){(letter | digit)}
+		 	letter ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
+			digit ::= "0" | "1" | ... "9"
+	
+	e. constants 
+		i) integer
+			integer ::= "0" | [+ | -] digitNonZero{digit}
+			digitNonZero ::= "1" | "2" | ... | "9"
+		ii) character
+			char ::= 'letter' | 'digit'
+		iii) string ::= `{char}`
+			
+
+			
+		

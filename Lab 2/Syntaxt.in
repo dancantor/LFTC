@@ -1,0 +1,60 @@
+program ::= "VAR" decllist ";" cmpdstmt "."
+
+decllist ::= declaration | declaration ";" decllist
+
+declaration ::= IDENTIFIER ":" type
+
+type1 ::=  "CHAR" | "INTEGER" | "STRING"
+
+arraydecl ::= "list" type1 "[" positiveNumber "]"
+
+positiveNumber ::= digit{digit}
+
+type  ::= type1|arraydecl
+
+cmpdstmt ::= "BEGIN" stmtlist "END"
+
+stmtlist ::= stmt | stmt ";" stmtlist
+
+stmt ::= simplstmt | structstmt
+
+simplstmt ::= assignstmt | iostmt
+
+assignstmt ::= IDENTIFIER "=" expression
+
+expression ::= expression "+" term | term
+
+plusEqual ::= expression "+=" term
+
+minusEqual ::= expression "-=" term
+
+divideEqual ::= term "/=" factor
+
+productEqual ::= term "*=" factor
+
+term ::= term "*" factor | factor
+
+substract ::= expression "-" term | term
+
+division ::= term "\" factor | factor
+
+factor ::= "(" expression ")" | IDENTIFIER | constants
+
+iostmt ::= ("in" | "out") "(" IDENTIFIER ")" | "out" "(" constants ")" 
+
+constants ::= integer | char | string
+
+structstmt ::= ifstmt | whilestmt
+
+ifstmt ::= "if" condition cmpdstmt ["else" cmpdstmt]
+
+whilestmt ::= while" condition cmpdstmt
+
+condition ::= expression (RELATION | LOGICAL) expression
+
+negation ::= "!" expression
+
+RELATION ::= "<" | "<=" | "=" | "<>" | ">=" | ">" | "==" | "!="
+
+LOGICAL ::= "||" | "&&"
+
