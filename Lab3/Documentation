@@ -1,0 +1,12 @@
+Documentation HashTable
+
+capacity: number -> represents the maximum storage for the hashtable and also the value for which the hash is computed
+nr_of_values: number -> represents the nur of values from the hash table
+list_of_values: array<Node> -> represents the actual array where the nodes are stored
+
+init: we initialize the array and set capacity initially to 7, nr_of_elements is 0 and the array is formed of 7 positions of None
+
+insert: we check if the load factor is less then 2, if so, we double capacity and recalculate hash
+        then we search for the hash value. and if we already have a node there, go to the end of the list and add to it
+
+get: we compute the hash value, and go through each node of that position in array until we find the searched key. if not found return None
