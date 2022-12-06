@@ -1,6 +1,7 @@
 from enum import Enum
 import re
 from SymbolTable import SymbolTableConstants, SymbolTableIdentifiers
+from finiteAutomata import FiniteAutomata
 
 
 class ScanningService:
@@ -15,6 +16,7 @@ class ScanningService:
         self.separators = []
         self.get_tokens()
         self.constants_count = 0
+        self.finite_automata = FiniteAutomata('finiteAutomata.in')
 
     def scan_file(self):
         with open(self.filename, 'r') as program:
@@ -72,14 +74,13 @@ class ScanningService:
                     self.separators.append(line)
 
     def is_identifier(self, string):
-        pattern = re.compile("[~a-zA-Z][~a-zA-Z0-9]{0,256}")
-        return pattern.fullmatch(string)
+        return self.finite_automata.check_word_if_identifier(string)
+
 
     def is_constant(self, string):
-        pattern_integer = re.compile("0|[+-]?[1-9][0-9]*")
         pattern_char = re.compile("'[a-zA-Z0-9]'")
         pattern_string = re.compile('"[a-zA-Z0-9]*"')
-        if pattern_integer.fullmatch(string) or pattern_char.fullmatch(string) or pattern_string.fullmatch(string):
+        if self.finite_automata.check_word_if_integer_constant(string) or pattern_char.fullmatch(string) or pattern_string.fullmatch(string):
             return True
         return False
 
@@ -92,5 +93,5 @@ class TypeOfToken(Enum):
     CONSTANT = 5
 
 
-scan = ScanningService('p4.rg.txt', 'token.in')
+scan = ScanningService('p2.rg.txt', 'token.in')
 scan.scan_file()

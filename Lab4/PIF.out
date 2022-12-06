@@ -1,54 +1,90 @@
 entry - 0
 BEGIN - 0
-list - 0
-TypeOfToken.IDENTIFIER - (6, 0)
 int - 0
-[ - 0
+TypeOfToken.IDENTIFIER - (5, 0)
+= - 0
 TypeOfToken.CONSTANT - (0, 0)
-] - 0
 ; - 0
 int - 0
-TypeOfToken.IDENTIFIER - (6, 1)
+TypeOfToken.IDENTIFIER - (5, 1)
 = - 0
-TypeOfToken.IDENTIFIER - (6, 0)
-[ - 0
 TypeOfToken.CONSTANT - (1, 0)
-] - 0
 ; - 0
-int - 0
-TypeOfToken.IDENTIFIER - (2, 0)
-= - 0
-TypeOfToken.CONSTANT - (2, 0)
-; - 0
-while - 0
+if - 0
 ( - 0
-TypeOfToken.IDENTIFIER - (9, 0)
-< - 0
+TypeOfToken.IDENTIFIER - (5, 0)
+== - 0
+TypeOfToken.CONSTANT - (2, 0)
+|| - 0
+TypeOfToken.IDENTIFIER - (5, 0)
+== - 0
 TypeOfToken.CONSTANT - (3, 0)
 ) - 0
 { - 0
-if - 0
-( - 0
-TypeOfToken.IDENTIFIER - (13, 0)
-[ - 0
-TypeOfToken.IDENTIFIER - (7, 0)
-] - 0
-< - 0
-TypeOfToken.IDENTIFIER - (6, 0)
-) - 0
-{ - 0
-TypeOfToken.IDENTIFIER - (6, 0)
+TypeOfToken.IDENTIFIER - (5, 1)
 = - 0
-TypeOfToken.IDENTIFIER - (13, 0)
-[ - 0
-TypeOfToken.IDENTIFIER - (21, 0)
-] - 0
+TypeOfToken.CONSTANT - (4, 0)
+; - 0
+finish - 0
 ; - 0
 } - 0
+if - 0
+TypeOfToken.IDENTIFIER - (5, 0)
+== - 0
+TypeOfToken.CONSTANT - (5, 0)
+{ - 0
+finish - 0
+; - 0
 } - 0
-out - 0
+if - 0
+TypeOfToken.IDENTIFIER - (5, 0)
+% - 0
+TypeOfToken.CONSTANT - (6, 0)
+== - 0
+TypeOfToken.CONSTANT - (7, 0)
+{ - 0
+TypeOfToken.IDENTIFIER - (5, 1)
+= - 0
+TypeOfToken.CONSTANT - (8, 0)
+; - 0
+finish - 0
+; - 0
+} - 0
+int - 0
+TypeOfToken.IDENTIFIER - (1, 0)
+; - 0
+TypeOfToken.IDENTIFIER - (1, 0)
+= - 0
+TypeOfToken.CONSTANT - (9, 0)
+; - 0
+while - 0
 ( - 0
-TypeOfToken.IDENTIFIER - (6, 0)
+TypeOfToken.IDENTIFIER - (15, 0)
+* - 0
+TypeOfToken.IDENTIFIER - (15, 0)
+<= - 0
+TypeOfToken.IDENTIFIER - (5, 0)
 ) - 0
+{ - 0
+if - 0
+TypeOfToken.IDENTIFIER - (5, 0)
+% - 0
+TypeOfToken.IDENTIFIER - (15, 0)
+== - 0
+TypeOfToken.CONSTANT - (10, 0)
+{ - 0
+TypeOfToken.IDENTIFIER - (19, 0)
+= - 0
+TypeOfToken.CONSTANT - (11, 0)
+; - 0
+finish - 0
+; - 0
+} - 0
+TypeOfToken.IDENTIFIER - (15, 0)
++= - 0
+TypeOfToken.CONSTANT - (12, 0)
+; - 0
+} - 0
+finish - 0
 ; - 0
 END - 0
