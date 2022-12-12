@@ -34,9 +34,10 @@ class Grammar:
                     continue
                 if start_of_productions:
                     [left_side, right_side] = line.split(' -> ')
-                    self.productions[left_side] = right_side.split(' | ')
-                    for symbols in self.productions[left_side]:
-                        symbols = re.split('(->|==|!=|\+=|-=|\*=|\/=|<=|>=|[\+\-\*=\/<>!;\[\]\{\}\(\),;\n]|\|\||&&)', right_side)
+                    right_side_split = right_side.split(' | ')
+                    self.productions[left_side] = []
+                    for index, symbols in enumerate(right_side_split):
+                        self.productions[left_side].append(re.split('(->|==|!=|\+=|-=|\*=|\/=|<=|>=|[ \+\-\*=\/<>!;\[\]\{\}\(\),;\n]|\|\||&&)', symbols))
                 if start_of_starting_symbols:
                     for starting_symbol in re.split('[ ,{}\n]', line):
                         if starting_symbol != '':
@@ -52,7 +53,7 @@ class Grammar:
     def nr_of_symbols(self, symbols):
         count = 0
         for non_terminal in self.non_terminals_set:
-            if non_terminal in symbols:
+            if non_terminal in symbols.split(' '):
                 count += 1
         for terminal in self.terminals_set:
             if terminal in symbols:
@@ -77,4 +78,8 @@ class Grammar:
 grammar = Grammar('g2.txt')
 print(grammar)
 print(grammar.check_if_context_free_grammar())
+
+grammar_no_context_free = Grammar('g1.txt')
+print(grammar_no_context_free)
+print(grammar_no_context_free.check_if_context_free_grammar())
 

@@ -2,6 +2,7 @@ G = {
 {TYPE, ARRAY_DECL, RELATION, OPERATION, DECLARATION, IDENTIFIER, INTEGER_CONSTANT, ASSIGNMENT_STMT, TERM, SYMBOL, EXPRESSION, IO_STMT, CONDITION, CONDITION_LIST, STMT, IF_STMT, WHILE_STMT, STMT_LIST, DECL_LIST, CMP_STMT, PROGRAM}
 {{, }, [, ], (, ), ;, <, >, =, <=, >=, ==, +, *, /,  %, //, &&, ||, int, char, string, bool, True, False, arr, if, else, while, read, write, hello, bye, begin, end}
 start
+PROGRAM -> hello DECL_LIST CMP_STMT bye
 TYPE -> int | char | string | bool
 ARRAY_DECL -> arr TYPE IDENTIFIER [ INTEGER_CONSTANT ]
 RELATION -> < | > | = | <= | >= | ==
@@ -20,5 +21,5 @@ WHILE_STMT -> while ( CONDITION_LIST ) { STMT }
 STMT_LIST -> STMT | STMT '\n' STMT_LIST
 DECL_LIST -> DECLARATION | DECLARATION DECL_LIST
 CMP_STMT -> begin STMT_LIST end
-PROGRAM -> hello DECL_LIST CMP_STMT bye
 end
+PROGRAM
