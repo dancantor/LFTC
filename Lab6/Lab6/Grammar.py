@@ -50,6 +50,16 @@ class Grammar:
                 return False
         return True
 
+    def check_if_nonterminal(self, expression):
+        if expression in self.non_terminals_set:
+            return True
+        return False
+
+    def check_if_terminal(self, expression):
+        if expression in self.terminals_set:
+            return True
+        return False
+
     def nr_of_symbols(self, symbols):
         count = 0
         for non_terminal in self.non_terminals_set:
@@ -75,11 +85,11 @@ class Grammar:
         return grammar_string
 
 
-grammar = Grammar('g2.txt')
-print(grammar)
-print(grammar.check_if_context_free_grammar())
-
-grammar_no_context_free = Grammar('g1.txt')
-print(grammar_no_context_free)
-print(grammar_no_context_free.check_if_context_free_grammar())
+# grammar = Grammar('g2.txt')
+# print(grammar)
+# print(grammar.check_if_context_free_grammar())
+#
+# grammar_no_context_free = Grammar('g1.txt')
+# print(grammar_no_context_free)
+# print(grammar_no_context_free.check_if_context_free_grammar())
 

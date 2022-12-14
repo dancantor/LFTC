@@ -1,8 +1,8 @@
 G = {
 {A, B, C}
-{1, 0}
+{1, 0, eps}
 start
-A -> 1 | 0A | A | B
+A -> 1 | 0 B
 B -> 0 | C
 C -> 1
 end
