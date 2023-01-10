@@ -80,7 +80,10 @@ class DescendentRecursiveParser:
             self.configuration.input_stack = self.configuration.input_stack[len_last_production:]
             self.configuration.input_stack = [last_nt[0]] + self.configuration.input_stack
 
-    def descendent_recursive_algorithm(self, word):
+    def descendent_recursive_algorithm(self, word='', filename=''):
+        if filename != '':
+            with open(filename, 'r') as program:
+                word = program.read()
         while self.configuration.s != 'f' and self.configuration.s != 'e':
             if self.configuration.s == 'q':
                 if self.configuration.i == len(word) and self.configuration.input_stack[0] == 'eps':
@@ -105,6 +108,6 @@ class DescendentRecursiveParser:
         print(self.configuration)
 
 
-grammar = Grammar('g1.txt')
+grammar = Grammar('g2.txt')
 parser = DescendentRecursiveParser(grammar)
-parser.descendent_recursive_algorithm('00')
+parser.descendent_recursive_algorithm(filename='p1.rg.txt')

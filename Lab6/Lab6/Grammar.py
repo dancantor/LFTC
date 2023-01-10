@@ -85,11 +85,11 @@ class Grammar:
         return grammar_string
 
 
-# grammar = Grammar('g2.txt')
-# print(grammar)
-# print(grammar.check_if_context_free_grammar())
-#
-# grammar_no_context_free = Grammar('g1.txt')
-# print(grammar_no_context_free)
-# print(grammar_no_context_free.check_if_context_free_grammar())
+grammar = Grammar('g2.txt')
+print(grammar)
+print(grammar.check_if_context_free_grammar())
+
+grammar_no_context_free = Grammar('g1.txt')
+print(grammar_no_context_free)
+print(grammar_no_context_free.check_if_context_free_grammar())
 

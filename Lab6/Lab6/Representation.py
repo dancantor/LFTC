@@ -1,4 +1,4 @@
-from Parser import Configuration
+
 
 
 class ParsingTreeNode:
@@ -20,6 +20,19 @@ class ParsingTree:
     def add_node(self, node: ParsingTreeNode):
         self.nodes_list.append(node)
 
-    def build_tree_from_configuration(self, configuration: Configuration):
-        return
-        #TODO
+    def build_tree_from_configuration(self, configuration, grammar):
+        result_working = []
+        parsing_table = []
+        for el in configuration.working_stack:
+            if type(el) is tuple:
+                result_working.append(el)
+
+        node = ParsingTreeNode(0, grammar.starting_symbols[0], -1, -1, [])
+        parsing_table.append(node)
+        while len(result_working) != 0:
+            non_terminal, production_nr = result_working[0]
+            result_working = result_working[1:]
+            resulted_production = grammar.productions[non_terminal][production_nr]
+            for el in resulted_production:
+                parsing_table.append(ParsingTreeNode(parsing_table[-1].index + 1, el, ))
+

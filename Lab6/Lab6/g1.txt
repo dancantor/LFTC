@@ -4,7 +4,7 @@ G = {
 start
 A -> 1 | 0 B
 B -> 0 | C
-C -> 1
+C -> 1 | B
 end
 A
 }
