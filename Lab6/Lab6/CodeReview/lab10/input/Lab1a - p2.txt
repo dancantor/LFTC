@@ -1,0 +1,16 @@
+go
+variable a ^ int
+variable b ^ int
+variable minimum ^ int
+variable gcd ^ int
+a <=> input("First nr: ")
+b <=> input("Second nr: ")
+if a > b:
+    minimum <=> b
+else:
+    minimum <=> a
+for i in range(1, minimum + 1):
+    if (a % i =:= 0) and (b % i =:= 0):
+        gcd <=> i
+display(gcd)
+stop

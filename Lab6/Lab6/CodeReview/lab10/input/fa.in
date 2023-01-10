@@ -1,0 +1,13 @@
+states:
+    p, q, r
+alphabet:
+    a, b, c
+initialState:
+    p
+finalStates:
+    r
+transitions:
+    p, a, q
+    q, b, q
+    q, c, r
+    r, b, r

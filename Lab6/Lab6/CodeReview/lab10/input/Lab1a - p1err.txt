@@ -1,0 +1,15 @@
+go
+variable a ^ int
+variable b ^ int
+variable c ^ int
+variable minimum ^ int
+a = input("Input first nr: ") $does not obey the <=> rule$
+b <=> input("Input second nr: ")
+c <=> input("Input third nr: ")
+minimum <=> a
+if b < minimum:
+    minimum <=>/ b $invalid token$
+if c <= minimum:
+    minimum <=> c
+display(minimum)
+stop

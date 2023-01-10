@@ -1,0 +1,13 @@
+go
+variable n ^ int
+variable i ^ int
+variable sum ^ int
+variable nr ^ int
+vector v [3]==> int
+n <=> input("Enter n:")
+sum <=> 0
+for i in range(0, n):
+    nr <=> input("Enter a nr:")
+    sum <=> sum + nr
+display(sum)
+stop

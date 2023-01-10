@@ -1,0 +1,58 @@
+https://github.com/912-Chereji-Iulia/LFTC-UBB_sem5/tree/main/lab11
+
+For this lab, we had to implement the lr(0) parser. In the first part, we had the 3 function : closure, goto and canonical collection
+
+ def closure(self, items) - adds all the appropriate items until all nonterminals preceded by dots are accounted for.
+    input: items= list of rules that can reduce the given production
+    output: the new set of items
+
+ def goto(self, state, symbol)- move the dot after symbol if symbol== first symbol after dot, then return closure for this new item
+    input: the state and symbol for which we compute goto
+    output: closure of the new item obtained
+
+ def computeCanonicalCollection(self):
+    input: nothing
+    output: a list of states forming the canonical collection of the grammar
+
+ For the table, we used a separate class Table where we compute the table considering all the 3 actions - accept, shift and reduce
+    def getTable(self): returns the newly created table, based on the canonical collection
+        input: nothing
+        output: the table containing one column for action/state (for a state, action is unique because prediction is ignored) and
+                goto: one column for each symbol in the union of nonterminal with the terminals
+
+ For the parser output, we used a separate class Parser Output in which we have the method of displaying the derivations and
+ where the actual parsing happens. We also have 2 methods for reading and writing from file.
+
+ def displayParsingByDerivations(self, output):
+        input: list of productions ids
+        output: returns the parsing of the grammar in derivation form
+
+ def initialiseStacks(self, input): initializes the stacks for the parsing algorithm
+        input: input seq
+        output: the work stack, input stack and output band
+
+ def parse(self, seq): actual parsing of the given seq
+        input: seq to be parsed
+        output: the resulted parsing
+
+ The next 3 methods are used in the last one for the 3 separate cases:
+
+ def shift(self, symbol, table, state):
+        input: the symbol, state and table for the current step in the parsing algorithm
+        output: modify the work stack
+
+ def accept(self):
+        input: nothing
+        output: work stack is empty
+
+ def reduce(self, table, state):
+        input: table and state for the current step in the parsing algorithm
+        output: insert into the input stack and output band
+
+ def checkActionForState(self, symbol, table, state): takes all the actions and applies the methods above
+        input: the symbol, state and table  for the current step in the parsing algorithm
+        output: the call of the specific method
+
+
+
+
