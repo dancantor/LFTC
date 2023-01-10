@@ -1,0 +1,79 @@
+0 program -1 -1 ['HELLO', 'tempDecl', 'BYE']
+1 HELLO 0 2 -1
+2 tempDecl 0 24 ['declList', 'tempDecl']
+3 declList 2 14 ['declaration']
+4 declaration 3 -1 ['variableDeclaration']
+5 variableDeclaration 4 -1 ['var', 'identifier', '#', 'type', ';']
+6 var 5 7 -1
+7 identifier 5 8 -1
+8 # 5 9 -1
+9 type 5 12 ['typeConst']
+10 typeConst 9 -1 ['int']
+11 int 10 -1 -1
+12 ; 5 -1 -1
+13 tempDecl 2 -1 ['stmtList', 'tempDecl']
+14 stmtList 13 23 ['stmt']
+15 stmt 14 -1 ['simplStmt']
+16 simplStmt 15 -1 ['ioStmt']
+17 ioStmt 16 -1 ['read', '(', 'identifier', ')', ';']
+18 read 17 19 -1
+19 ( 17 20 -1
+20 identifier 17 21 -1
+21 ) 17 22 -1
+22 ; 17 -1 -1
+23 tempDecl 13 -1 ['declList', 'tempDecl']
+24 declList 23 37 ['declaration']
+25 declaration 24 -1 ['constDeclaration']
+26 constDeclaration 25 -1 ['let', 'identifier', '#', 'type', '=', 'expression', ';']
+27 let 26 28 -1
+28 identifier 26 29 -1
+29 # 26 30 -1
+30 type 26 33 ['typeConst']
+31 typeConst 30 -1 ['int']
+32 int 31 -1 -1
+33 = 26 34 -1
+34 expression 26 40 ['term']
+35 term 34 -1 ['factor', '%', 'term']
+36 factor 35 38 ['identifier']
+37 identifier 36 -1 -1
+38 % 35 39 -1
+39 term 35 -1 ['factor']
+40 factor 39 -1 ['integer']
+41 integer 40 -1 -1
+42 ; 26 -1 -1
+43 tempDecl 23 -1 ['stmtList', 'tempDecl']
+44 stmtList 43 54 ['stmt']
+45 stmt 44 -1 ['simplStmt']
+46 simplStmt 45 -1 ['ioStmt']
+47 ioStmt 46 -1 ['write', '(', 'stringExp', ')', ';']
+48 write 47 49 -1
+49 ( 47 50 -1
+50 stringExp 47 52 ['identifier']
+51 identifier 50 -1 -1
+52 ) 47 53 -1
+53 ; 47 -1 -1
+54 tempDecl 43 -1 ['stmtList', 'tempDecl']
+55 stmtList 54 65 ['stmt']
+56 stmt 55 -1 ['simplStmt']
+57 simplStmt 56 -1 ['ioStmt']
+58 ioStmt 57 -1 ['write', '(', 'stringExp', ')', ';']
+59 write 58 60 -1
+60 ( 58 61 -1
+61 stringExp 58 63 ['string']
+62 string 61 -1 -1
+63 ) 58 64 -1
+64 ; 58 -1 -1
+65 tempDecl 54 -1 ['stmtList', 'tempDecl']
+66 stmtList 65 76 ['stmt']
+67 stmt 66 -1 ['simplStmt']
+68 simplStmt 67 -1 ['ioStmt']
+69 ioStmt 68 -1 ['write', '(', 'stringExp', ')', ';']
+70 write 69 71 -1
+71 ( 69 72 -1
+72 stringExp 69 74 ['string']
+73 string 72 -1 -1
+74 ) 69 75 -1
+75 ; 69 -1 -1
+76 tempDecl 65 -1 ['E']
+77 E 76 -1 -1
+78 BYE 0 -1 -1

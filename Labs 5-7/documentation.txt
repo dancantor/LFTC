@@ -1,0 +1,117 @@
+https://github.com/andreea-buiga/flcd/tree/main/labs5-7
+
+project by:
+Buiga Andreea
+Cantor Dan
+
+1) Grammar
+
+Attributes
+    - N - non-terminals set
+    - E - terminals set
+    - S - starting symbol
+    - P - productions
+
+Methods
+- read_from_file(filename)
+    -> param: filename - string
+    -> return: grammar object with all the attributes
+               error - if the input file was written incorrectly
+    -> reads from file and populates the attributes (N, E, S, P)
+    -> first line contains the set of non-terminals N
+    -> second line contains the set of terminals E
+    -> third line contains the starting symbol S
+    -> starting from fourth line the set of productions P
+- parse_line(line)
+    -> param: line - string
+    -> return: list of values stripped from the line
+- parse_production(prods)
+    -> param: prods - list of string
+    -> return: dictionary containing the left and right side of the production
+- validate(N, E, S, P)
+    -> params:
+        N - non-terminals set
+        E - terminals set
+        S - starting symbol
+        P - productions
+    -> return: true, if the file was written correctly
+                false, otherwise
+- check_if_non_terminal(value)
+    -> param: value - string
+    -> return: true, if non-terminal
+                false, otherwise
+- is_cfg
+    -> return: true, if grammar is cfg
+                false, otherwise
+    -> checks if all the non-terminals have at least one production, the productions' keys are a single char
+# getters
+- get_non_terminals
+- get_terminals
+- get_all_productions
+- get_productions_for_non_terminal(non_terminal)
+    -> param: non_terminal
+    -> return: the set of productions for the given non-terminal
+
+2) Recursive Descendant
+
+- expand -> when the head of the input stack is a non-terminal
+    -> (q,i, 𝜶, A𝜷) ⊢ (q,i, 𝜶A 1, 𝜸1𝜷)
+    -> pops the element from the input stack
+    -> append it to the working stack
+    -> new production is added to the input stack
+
+- advance -> when the head of the input stack is a terminal = current symbol from input
+    -> (q,i, 𝜶, ai𝜷) ⊢ (q,i+1, 𝜶ai, 𝜷)
+    -> increase the index and move the element from the input stack to the working stack
+
+- momentary_insucces -> when the head of input stack is a terminal ≠ current symbol from input
+    -> (q,i, 𝜶, ai𝜷) ⊢ (b,i, 𝜶, ai𝜷)
+    -> modify the state of the configuration to ‘b’
+
+- back -> when the head of working stack is a terminal
+    -> (b,i, 𝜶a, 𝜷) ⊢ (b,i-1, 𝜶, a𝜷)
+    -> decrease the index
+    -> move the last element from the working stack back to the input stack
+
+- another_try -> when the head of the working stack is a non-terminal
+    -> (b,i, 𝜶 A j, 𝜸j 𝜷) ⊢ (q,i, 𝜶A j+1, 𝜸j+1𝜷), if ∃ A → 𝜸j+1
+				     (b,i, 𝜶, A 𝜷), otherwise with the exception
+			         (e,i, 𝜶, 𝜷), if i=1, A=S, ERROR
+
+- success -> (q,n+1, 𝜶, 𝜀) ⊢ (f,n+1, 𝜶, 𝜀)
+    -> modify the state to ‘f’
+    -> index = sequence length, input stack is empty
+
+- get_next_production(prod, prods)
+    -> param: prod - production
+              prods - the list of productions
+    -> return: the next production in the list
+
+- recursive_descendant(grammar, sequence, config)
+    -> uses backtracking
+    -> beginning with the starting symbol, the sequence wil be built with each production
+    -> we will use the previous functions with the corresponding cases based on the given sequence
+
+3) Parsing Tree
+ParsingTreeNode
+    - index
+    - father - index of the father
+    - sibling
+    - value
+    - production - -1, for terminals
+                   the production, for non-terminals
+
+- write_tree_to_file(filename)
+    -> param: filename - string
+    -> writes the tree to the file
+
+- get_production_depth(index)
+    -> param: index - int
+    -> get the depth for a production
+
+- parse
+    -> go from the stack to the tree structure
+    -> the terminals and non-terminals (with the corresponding production) will compose a ParsingTreeNode
+    -> if the node doesn't have a sibling, we put -1
+    -> the position of each sibling is done with the help of get_production_depth
+
