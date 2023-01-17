@@ -1,0 +1,5 @@
+entry
+{
+	int 3number = 3;
+	out(number);
+}
